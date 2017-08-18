@@ -24,7 +24,8 @@ get '/sandwich_results' do
 	meatchoices = params[:meatchoices]
 	veggiechoices = params[:veggiechoices]
 	cheesechoices = params[:cheesechoices]
-	erb :sandwich_results, :locals=>{:meatchoices=>meatchoices,:veggiechoices=>veggiechoices,:cheesechoices=>cheesechoices}
+	meatboxx = meat_box(meatyarray)
+	erb :sandwich_results, :locals=>{:meatchoices=>meatchoices,:veggiechoices=>veggiechoices,:cheesechoices=>cheesechoices, :meatboxx=>meatboxx}
 end
 
 post '/sandwich_results' do

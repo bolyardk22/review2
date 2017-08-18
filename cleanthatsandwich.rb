@@ -68,7 +68,21 @@ def simple_cheese(cheesearray)
 end
 
 def meat_box(meats)
-	if meats.length == 0
+	if meats.to_a.length == 0
+		meatboxquestion = '<input type="checkbox" id="#{meats[0]}" value="#{meats[0]}"> name="meatboxname">'
+
+	elsif meats.to_a.length == 1
+		meatboxquestion = '<input type="checkbox" id="#{meats[0]}#{meats[1]}" value="#{meats[0]}#{meats[1]}"> name="meatboxname">'
+
+	elsif meats.to_a.length == 2
+		meatboxquestion = '<input type="checkbox" id="#{meats[0]}#{meats[1]}#{meats[2]}" value="#{meats[0]}#{meats[1]}#{meats[2]}"> name="meatboxname">'
+
+	elsif meats.to_a.length == 3
+		meatboxquestion = '<input type="checkbox" id="#{meats[0]}#{meats[1]}#{meats[2]}#{meats[3]}" value="#{meats[0]}#{meats[1]}#{meats[2]}#{meats[3]}"> name="meatboxname">'
+
+	else
+		meatboxquestion = "error"
+	end
 end
 
 def veg_box(vegs)
