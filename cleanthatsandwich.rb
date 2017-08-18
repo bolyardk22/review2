@@ -1,19 +1,19 @@
-def simple_meat(meatarray)
+def simple_meat(meatarray,checkboxstring)
 	cleanerma = meatarray.reject { |item| item.nil? || item == '' }
 	if cleanerma.length == 0
-		meatanswer = "no meat<br>"
+		meatanswer = "#{checkboxstring}no meat<br>"
 
 	elsif cleanerma.length == 1
-		meatanswer = "#{cleanerma[0]}<br>"
+		meatanswer = "#{checkboxstring}#{cleanerma[0]}<br>"
 
 	elsif cleanerma.length == 2
-		meatanswer = "#{cleanerma[0]}<br>#{cleanerma[1]}<br>"
+		meatanswer = "#{checkboxstring}#{cleanerma[0]}<br>#{checkboxstring}#{cleanerma[1]}<br>"
 
 	elsif cleanerma.length == 3
-		meatanswer = "#{cleanerma[0]}<br>#{cleanerma[1]}<br>#{cleanerma[2]}<br>"
+		meatanswer = "#{checkboxstring}#{cleanerma[0]}<br>#{checkboxstring}#{cleanerma[1]}<br>#{checkboxstring}#{cleanerma[2]}<br>"
 
 	elsif cleanerma.length == 4
-		meatanswer = "#{cleanerma[0]}<br>#{cleanerma[1]}<br>#{cleanerma[2]}<br>#{cleanerma[3]}<br>"
+		meatanswer = "#{checkboxstring}#{cleanerma[0]}<br>#{checkboxstring}#{cleanerma[1]}<br>#{checkboxstring}#{cleanerma[2]}<br>#{checkboxstring}#{cleanerma[3]}<br>"
 
 	else
 		meatanswer = "error<br>"
@@ -68,16 +68,16 @@ def simple_cheese(cheesearray)
 end
 
 def meat_box(meats)
-	if meats.to_a.length == 0
+	if meats == 0
 		meatboxquestion = '<input type="checkbox" id="#{meats[0]}" value="#{meats[0]}"> name="meatboxname">'
 
-	elsif meats.to_a.length == 1
+	elsif meats == 1
 		meatboxquestion = '<input type="checkbox" id="#{meats[0]}#{meats[1]}" value="#{meats[0]}#{meats[1]}"> name="meatboxname">'
 
-	elsif meats.to_a.length == 2
+	elsif meats == 2
 		meatboxquestion = '<input type="checkbox" id="#{meats[0]}#{meats[1]}#{meats[2]}" value="#{meats[0]}#{meats[1]}#{meats[2]}"> name="meatboxname">'
 
-	elsif meats.to_a.length == 3
+	elsif meats == 3
 		meatboxquestion = '<input type="checkbox" id="#{meats[0]}#{meats[1]}#{meats[2]}#{meats[3]}" value="#{meats[0]}#{meats[1]}#{meats[2]}#{meats[3]}"> name="meatboxname">'
 
 	else
@@ -86,9 +86,9 @@ def meat_box(meats)
 end
 
 def veg_box(vegs)
-
+	"in progress"
 end
 
 def cheese_box(cheeses)
-
+	"in progressss"
 end

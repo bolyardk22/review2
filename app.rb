@@ -9,34 +9,54 @@ end
 
 post '/sandwich_parts' do
 	meatyarray = params[:meats]
+	meatyarraylength = meatyarray.length
 	veggiearray = params[:veggies]
+	veggiearraylength = veggiearray.length
 	cheesyarray = params[:cheeses]
+	cheesyarraylength = cheesyarray.length
 	meatchoices = simple_meat(meatyarray)
 	veggiechoices = simple_veggie(veggiearray)
 	cheesechoices = simple_cheese(cheesyarray)
-	redirect "/sandwich_results?meatchoices=" + meatchoices +"&veggiechoices=" + veggiechoices + "&cheesechoices=" + cheesechoices + '&meatyarray=' + meatyarray.to_s + '&veggiearray=' + veggiearray.to_s + '&cheesyarray=' + cheesyarray.to_s
+	redirect "/sandwich_results?meatchoices=" + meatchoices +"&veggiechoices=" + veggiechoices + "&cheesechoices=" + cheesechoices + '&meatyarray=' + meatyarray.to_s + '&veggiearray=' + veggiearray.to_s + '&cheesyarray=' + cheesyarray.to_s + '&meatyarraylength=' + meatyarraylength.to_s + '&veggiearraylength=' + veggiearraylength.to_s + '&cheesyarraylength=' + cheesyarraylength.to_s
 end
 
 get '/sandwich_results' do
 	meatyarray = params[:meatyarray]
+	meatyarraylength = params[:meatyarraylength]
 	veggiearray = params[:veggiearray]
+	veggiearraylength = params[:veggiearraylength]
 	cheesyarray = params[:cheesyarray]
+	cheesyarraylength = params[:cheesyarraylength]
 	meatchoices = params[:meatchoices]
 	veggiechoices = params[:veggiechoices]
 	cheesechoices = params[:cheesechoices]
-	meatboxx = meat_box(meatyarray)
-	erb :sandwich_results, :locals=>{:meatchoices=>meatchoices,:veggiechoices=>veggiechoices,:cheesechoices=>cheesechoices, :meatboxx=>meatboxx}
+	meatboxx = meat_box(meatyarraylength)
+	erb :sandwich_results, :locals=>{:meatchoices=>meatchoices,:veggiechoices=>veggiechoices,:cheesechoices=>cheesechoices, :meatboxx=>meatboxx, :meatyarraylength=>meatyarraylength, :veggiearraylength=>veggiearraylength, :cheesyarraylength=>cheesyarraylength}
 end
 
 post '/sandwich_results' do
-	meatchoices = params[:meats]
-	veggiechoices = params[:veggies]
-	cheesechoices = params[:cheeses]
-	redirect "/areyousure?meatchoices=" + meatchoices +"&veggiechoices=" + veggiechoices + "&cheesechoices=" + cheesechoices
+	meatyarray = params[:meatyarray]
+	meatyarraylength = params[:meatyarraylength]
+	veggiearray = params[:veggiearray]
+	veggiearraylength = params[:veggiearraylength]
+	cheesyarray = params[:cheesyarray]
+	cheesyarraylength = params[:cheesyarraylength]
+	meatchoices = params[:meatchoices]
+	veggiechoices = params[:veggiechoices]
+	cheesechoices = params[:cheesechoices]
+	meatboxx = params[:meatboxx]
+	redirect "/areyousure?meatchoices=" + meatchoices +"&veggiechoices=" + veggiechoices + "&cheesechoices=" + cheesechoices + '&meatyarray=' + meatyarray.to_s + '&veggiearray=' + veggiearray.to_s + '&cheesyarray=' + cheesyarray.to_s + '&meatyarraylength=' + meatyarraylength.to_s + '&veggiearraylength=' + veggiearraylength.to_s + '&cheesyarraylength=' + cheesyarraylength.to_s
 end
 
 get '/areyousure' do
-	meatchoices = params[:meats]
-	veggiechoices = params[:veggies]
-	cheesechoices = params[:cheeses]
+	meatyarray = params[:meatyarray]
+	meatyarraylength = params[:meatyarraylength]
+	veggiearray = params[:veggiearray]
+	veggiearraylength = params[:veggiearraylength]
+	cheesyarray = params[:cheesyarray]
+	cheesyarraylength = params[:cheesyarraylength]
+	meatchoices = params[:meatchoices]
+	veggiechoices = params[:veggiechoices]
+	cheesechoices = params[:cheesechoices]
+	meatboxx = params[:meatboxx]
 end
