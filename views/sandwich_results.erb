@@ -1,14 +1,8 @@
-<form method="post" action="/areyousure">
 
-	<h3>Your meat choices are:</h3>
-	<p><%=meatboxx%><%=meatchoices%></p><br>
 
-	<h3>Your veggie choices are:</h3>
-	<p><%=veggiechoices%></p><br>
-
-	<h3>Your cheese choices are:</h3>
-	<p><%=cheesechoices%></p><br>
-
-	<input type='submit'>
-
+<%parts.each do |x|%>
+<form action="/correct">
+        <p><input type="checkbox" value="<%=x%>" name="toppings[]" checked><%=x%></p>
+    <%end%>
+    <input type="submit" value="These are correct!">
 </form>
